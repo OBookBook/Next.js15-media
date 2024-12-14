@@ -18,13 +18,13 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
               alt="thumbnail"
               width={article.thumbnails.width}
               height={article.thumbnails.height}
-              className="rounded-md"
+              className="rounded-md hover:ring-blue-600 hover:ring-2 transition-all duration-150"
             />
           </Link>
         </div>
         <Link
           href={`/articles/${article.slag}`}
-          className="text-left md:text-xl leading-7 inline-block"
+          className="text-left md:text-xl leading-7 inline-block hover:text-blue-600 transition-all duration-150"
         >
           {article.title}
         </Link>
