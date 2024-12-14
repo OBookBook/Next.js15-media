@@ -1,3 +1,4 @@
+import { Article } from "../types/types";
 import { client } from "./client";
 
 export const getAllArticles = async () => {
@@ -5,5 +6,5 @@ export const getAllArticles = async () => {
     endpoint: "articles",
   });
 
-  return data;
+  return { data };
 };

@@ -1,7 +1,11 @@
 import ArticleCardList from "./components/ArticleList";
+import { getAllArticles } from "./libs/api";
 import styles from "./styles/Home.module.css";
 
 export default async function Home() {
+  const { data } = await getAllArticles();
+  const articles = data.contents;
+
   return (
     <>
       <div
@@ -17,7 +21,7 @@ export default async function Home() {
         <div className="mt-24">
           <div className="mx-auto text-center py-4">
             <h2 className="md:text-4xl">記事一覧</h2>
-            <ArticleCardList />
+            <ArticleCardList articles={articles} />
           </div>
         </div>
       </main>
