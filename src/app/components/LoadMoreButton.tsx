@@ -32,7 +32,7 @@ const LoadMoreButton = ({ initialCount, totalCount }: LoadMoreButtonProps) => {
 
   return (
     <div className="mt-4">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10 gap-x-4 mt-10">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10 gap-x-4">
         {articles.map((article) => (
           <ArticleCard key={article.id} article={article} />
         ))}
