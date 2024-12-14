@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import { Article } from "../types/types";
+import Link from "next/link";
 
 type ArticleCardProps = {
   article: Article;
@@ -10,18 +11,26 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
   return (
     <div>
       <div className="space-y-2">
-        <div className="mx-auto text-center">
-          <Image
-            src={article.thumbnails.url}
-            alt="thumbnail"
-            width={article.thumbnails.width}
-            height={article.thumbnails.height}
-          />
+        <div>
+          <Link href={`/articles/${article.slag}`}>
+            <Image
+              src={article.thumbnails.url}
+              alt="thumbnail"
+              width={article.thumbnails.width}
+              height={article.thumbnails.height}
+              className="rounded-md"
+            />
+          </Link>
         </div>
-        <h3 className="text-left">{article.title}</h3>
-        <div className="flex gap-3 items-center">
-          <span>{article.createdAt}</span>
-          <span>{article.author}</span>
+        <Link
+          href={`/articles/${article.slag}`}
+          className="text-left md:text-xl leading-7 inline-block"
+        >
+          {article.title}
+        </Link>
+        <div className="flex gap-3 items-center text-gray-600">
+          <span>{new Date(article.createdAt).toLocaleDateString()}</span>
+          <span>著者名:{article.author}</span>
         </div>
       </div>
     </div>
