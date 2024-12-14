@@ -12,7 +12,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
     <div>
       <div className="space-y-2">
         <div>
-          <Link href={`/articles/${article.slag}`}>
+          <Link href={`/articles/${article.id}`}>
             <Image
               src={article.thumbnails.url}
               alt="thumbnail"
@@ -23,7 +23,7 @@ const ArticleCard = ({ article }: ArticleCardProps) => {
           </Link>
         </div>
         <Link
-          href={`/articles/${article.slag}`}
+          href={`/articles/${article.id}`}
           className="text-left md:text-xl leading-7 inline-block hover:text-blue-600 transition-all duration-150"
         >
           {article.title}
