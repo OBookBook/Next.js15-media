@@ -22,9 +22,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${geistSans.variable} antialiased`}>
-        <div>
+        <div className="flex flex-col h-screen">
           <Header />
-          <main>{children}</main>
+          <main className="flex-grow">{children}</main>
           <Footer />
         </div>
       </body>
