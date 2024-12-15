@@ -4,6 +4,7 @@ import parse from "html-react-parser";
 import React from "react";
 import { XShareButton } from "@/components/common/XShareButton";
 import ArticleCommercial from "@/components/common/ArticleCommercial";
+import BackToTopPageButton from "@/components/common/BackToTopPageButton";
 
 const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
   const contentId = params.contentId;
@@ -38,7 +39,7 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
         {parse(content)}
       </div>
 
-      <div className="my-16 text-center">
+      <div className="my-12 text-center">
         <XShareButton
           url={shareUrl}
           title={title}
@@ -48,6 +49,10 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
 
       <div className="my-16">
         <ArticleCommercial />
+      </div>
+
+      <div className="text-center mb-12">
+        <BackToTopPageButton />
       </div>
     </div>
   );
