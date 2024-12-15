@@ -31,7 +31,9 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
         </div>
       </div>
 
-      <div className="prose prose-lg max-w-none">{parse(content)}</div>
+      <div className="prose prose-lg max-w-none prose-a:text-blue-600 hover:prose-a:text-blue-500">
+        {parse(content)}
+      </div>
     </div>
   );
 };
