@@ -15,7 +15,7 @@ export const getAllArticles = async (offset: number = 0, limit: number = 6) => {
 /**
  * Retrieves the details of article.
  */
-export const getDetailArticles = async (contentId: string) => {
+export const getDetailArticle = async (contentId: string) => {
   const data = await client.getListDetail({
     endpoint: "articles",
     contentId: contentId,

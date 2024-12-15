@@ -1,12 +1,13 @@
-import { getDetailArticles } from "@/app/libs/api";
+import { getDetailArticle } from "@/app/libs/api";
 import Image from "next/image";
 import parse from "html-react-parser";
 import React from "react";
 import { XShareButton } from "@/components/common/XShareButton";
+import ArticleCommercial from "@/components/common/ArticleCommercial";
 
 const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
   const contentId = params.contentId;
-  const { data } = await getDetailArticles(contentId);
+  const { data } = await getDetailArticle(contentId);
   const { title, thumbnails, createdAt, content, author, tags } = data;
   const tagList = Array.isArray(tags) ? tags : [tags];
 
@@ -43,6 +44,10 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
           title={title}
           hashtags={tagList.map((tag: { name: string }) => tag.name)}
         />
+      </div>
+
+      <div className="my-16">
+        <ArticleCommercial />
       </div>
     </div>
   );
