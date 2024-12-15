@@ -1,7 +1,7 @@
 export type Article = {
   id: string;
   title: string;
-  slag: string;
+  slug: string;
   content: string;
   description: string;
   category: string[];

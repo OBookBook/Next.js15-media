@@ -23,3 +23,27 @@ export const getDetailArticle = async (contentId: string) => {
 
   return { data };
 };
+
+/**
+ * List of articles about tags
+ */
+
+export const getArticlesByTagId = async (tagId: string) => {
+  const data = await client.getList({
+    endpoint: "articles",
+    queries: { filters: `tags[equals]${tagId}` },
+  });
+  return { data };
+};
+
+/**
+ * Retrieves all Tagu List
+ */
+
+export const getAllTags = async () => {
+  const data = await client.get({
+    endpoint: "tags",
+  });
+
+  return { data };
+};
