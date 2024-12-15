@@ -22,14 +22,6 @@ const Header = () => {
             </li>
             <li>
               <Link
-                href={"/category"}
-                className="hover:underline underline-offset-2"
-              >
-                Category
-              </Link>
-            </li>
-            <li>
-              <Link
                 href={"/tags"}
                 className="hover:underline underline-offset-2"
               >
