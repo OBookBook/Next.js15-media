@@ -1,5 +1,5 @@
 import React from "react";
-import { Article } from "../types/types";
+import { Article } from "../app/types/types";
 import ArticleCard from "@/components/ArticleCard";
 
 type ArticleCardListProps = {
