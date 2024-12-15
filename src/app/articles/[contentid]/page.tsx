@@ -5,6 +5,7 @@ import React from "react";
 import { XShareButton } from "@/components/common/XShareButton";
 import ArticleCommercial from "@/components/common/ArticleCommercial";
 import BackToTopPageButton from "@/components/common/BackToTopPageButton";
+import Link from "next/link";
 
 const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
   const contentId = params.contentId;
@@ -25,12 +26,13 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
         </div>
         <div className="my-4 inline-block">
           {tagList.map((tag: { name: string }) => (
-            <div
+            <Link
+              href={`/tags/${tag.name}`}
               key={tag.name}
               className="border-2 px-2 py-1 rounded-md border-slate-500"
             >
               <span className="text-sm">{tag.name}</span>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
