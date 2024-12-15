@@ -1,6 +1,6 @@
 import React from "react";
-import ArticleCard from "./ArticleCard";
-import { Article } from "../app/types/types";
+import { Article } from "../types/types";
+import ArticleCard from "@/components/ArticleCard";
 
 type ArticleCardListProps = {
   articles: Article[];
