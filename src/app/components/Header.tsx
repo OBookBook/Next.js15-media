@@ -6,7 +6,9 @@ const Header = () => {
     <header className="container mx-auto py-6 px-2">
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="font-semibold sm:text-2xl">iwa-Media</h1>
+          <Link href="/" className="font-semibold sm:text-2xl">
+            iwa Media
+          </Link>
         </div>
         <nav className="hidden md:block">
           <ul className="flex items-center gap-4">

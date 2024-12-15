@@ -31,7 +31,7 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
         </div>
       </div>
 
-      <div>{parse(content)}</div>
+      <div className="prose prose-lg max-w-none">{parse(content)}</div>
     </div>
   );
 };
