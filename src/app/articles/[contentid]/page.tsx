@@ -2,6 +2,7 @@ import { getDetailArticles } from "@/app/libs/api";
 import Image from "next/image";
 import parse from "html-react-parser";
 import React from "react";
+import { XShareButton } from "@/components/common/XShareButton";
 
 const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
   const contentId = params.contentId;
@@ -9,7 +10,8 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
   const { title, thumbnails, createdAt, content, author, tags } = data;
   const tagList = Array.isArray(tags) ? tags : [tags];
 
-  console.log("tags:", tags);
+  const shareUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/articles/${contentId}`;
+
   return (
     <div className="container mx-auto md:max-w-[760px] my-4">
       <Image src={thumbnails.url} alt="title" width={760} height={420} />
@@ -33,6 +35,14 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
 
       <div className="prose prose-lg max-w-none prose-a:text-blue-600 hover:prose-a:text-blue-500">
         {parse(content)}
+      </div>
+
+      <div className="my-16 text-center">
+        <XShareButton
+          url={shareUrl}
+          title={title}
+          hashtags={tagList.map((tag: { name: string }) => tag.name)}
+        />
       </div>
     </div>
   );
