@@ -1,5 +1,6 @@
 import { getDetailArticles } from "@/app/libs/api";
 import Image from "next/image";
+import parse from "html-react-parser";
 import React from "react";
 
 const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
@@ -29,6 +30,8 @@ const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
           ))}
         </div>
       </div>
+
+      <div>{parse(content)}</div>
     </div>
   );
 };
