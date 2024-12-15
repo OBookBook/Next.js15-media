@@ -9,7 +9,7 @@ const ArticleCommercial = async () => {
   return (
     <div>
       <div className="text-left border-b py-2">
-        <h3>プログラミングの極意</h3>
+        <h3 className="md:text-2xl">プログラミングの極意</h3>
       </div>
 
       <div>
