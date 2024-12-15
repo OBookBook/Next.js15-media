@@ -1,10 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { getAllArticles } from "../libs/api";
-import { Article } from "../types/types";
+import { getAllArticles } from "../app/libs/api";
+import { Article } from "../app/types/types";
 import ArticleCard from "./ArticleCard";
-import { MAX_DISPLAY_ARTICLE } from "../utils/constants";
+import { MAX_DISPLAY_ARTICLE } from "../app/utils/constants";
 
 type LoadMoreButtonProps = {
   initialCount: number;

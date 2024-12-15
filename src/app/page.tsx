@@ -1,5 +1,5 @@
-import ArticleCardList from "./components/ArticleList";
-import LoadMoreButton from "./components/LoadMoreButton";
+import ArticleCardList from "../components/ArticleList";
+import LoadMoreButton from "../components/LoadMoreButton";
 import { getAllArticles } from "./libs/api";
 import styles from "./styles/Home.module.css";
 
