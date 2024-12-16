@@ -3,7 +3,7 @@ import ArticleCardList from "../components/ArticleList";
 import LoadMoreButton from "../components/LoadMoreButton";
 import { getAllArticles } from "./libs/api";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 
 export default async function Home() {
   const { data } = await getAllArticles(0, 3);

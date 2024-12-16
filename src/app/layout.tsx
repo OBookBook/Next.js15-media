@@ -3,6 +3,7 @@ import { Noto_Sans_JP } from "next/font/google";
 import "./globals.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { siteData } from "@/config/site";
 
 const geistSans = Noto_Sans_JP({
   variable: "--font-geist-sans",
@@ -10,8 +11,22 @@ const geistSans = Noto_Sans_JP({
 });
 
 export const metadata: Metadata = {
-  title: "Book Media",
+  title: {
+    template: `%s | ${siteData.siteName}`,
+    default: siteData.siteName,
+  },
   description: "記事メディアです",
+  authors: { name: "iwa", url: siteData.siteUrl },
+  keywords: ["Next.js", "Three.js", "FrontEnd"],
+  openGraph: {
+    title: siteData.siteName,
+    description: siteData.siteDescription,
+    url: siteData.siteUrl,
+    siteName: siteData.siteName,
+    images: [{ url: `${siteData.siteUrl}/og.png`, width: 1200, height: 630 }],
+    locale: "ja_JP",
+    type: "website",
+  },
 };
 
 export default function RootLayout({
