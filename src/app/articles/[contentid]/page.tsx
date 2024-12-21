@@ -24,7 +24,7 @@ export async function generateMetadata({
     openGraph: {
       images: [
         {
-          url: thumbnails.url,
+          url: thumbnails?.url || "/default-thumbnail.jpg",
           width: 1200,
           height: 630,
         },
