@@ -21,14 +21,17 @@ const LoadMoreButton = ({ initialCount, totalCount }: LoadMoreButtonProps) => {
 
   const loadMore = async () => {
     setLoading(true);
-    const { data } = await getAllArticles(cureentCount, MAX_DISPLAY_ARTICLE);
-    setArticles((prev) => [...prev, ...data.contents]);
-    setCurrentCount((prev) => prev + data.contents.length);
+    const { contents } = await getAllArticles(
+      cureentCount,
+      MAX_DISPLAY_ARTICLE
+    );
+    setArticles((prev) => [...prev, ...contents]);
+    setCurrentCount((prev) => prev + contents.length);
     setRemainArticleCount((prev) => prev - cureentCount);
     setLoading(false);
   };
 
-  let hasMore = cureentCount < totalCount;
+  const hasMore = cureentCount < totalCount;
 
   return (
     <div className="mt-4">

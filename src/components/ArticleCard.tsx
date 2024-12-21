@@ -3,7 +3,6 @@
 import Image from "next/image";
 import React from "react";
 import { Article } from "../app/types/types";
-import Link from "next/link";
 import { TransitionLink } from "./common/TransitionLink";
 
 type ArticleCardProps = {

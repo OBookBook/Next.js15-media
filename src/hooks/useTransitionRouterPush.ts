@@ -12,6 +12,7 @@ export const useTransitionRouterPush = () => {
   );
 
   const { startViewTransition: routerPushWithTransition } =
-    useViewTransition(routerPush);
+    useViewTransition<[string]>(routerPush);
+
   return { routerPushWithTransition };
 };

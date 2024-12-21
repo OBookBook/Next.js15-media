@@ -12,7 +12,7 @@ export const XShareButton = ({
   title,
   hashtags = [],
 }: XShareButtonProps) => {
-  let shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+  const shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(
     url
   )}&text=${encodeURIComponent(title)}${
     hashtags.length ? `&hashtags=${hashtags.join(",")}` : ""

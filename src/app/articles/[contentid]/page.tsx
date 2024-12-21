@@ -6,15 +6,17 @@ import { XShareButton } from "@/components/common/XShareButton";
 import ArticleCommercial from "@/components/common/ArticleCommercial";
 import BackToTopPageButton from "@/components/common/BackToTopPageButton";
 import Link from "next/link";
-import { promises } from "dns";
 import { Metadata } from "next";
+
+// 型定義を修正
+interface PageProps {
+  params: Promise<{ contentId: string }>;
+}
 
 export async function generateMetadata({
   params,
-}: {
-  params: { contentId: string };
-}): Promise<Metadata> {
-  const contentId = params.contentId;
+}: PageProps): Promise<Metadata> {
+  const contentId = (await params).contentId;
   const { articles } = await getDetailArticle(contentId);
   const { title, thumbnails } = articles;
 
@@ -26,8 +28,8 @@ export async function generateMetadata({
   };
 }
 
-const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
-  const contentId = params.contentId;
+const DetailArticle = async ({ params }: PageProps) => {
+  const contentId = (await params).contentId;
   const { articles } = await getDetailArticle(contentId);
   const { title, thumbnails, createdAt, content, author, tags } = articles;
   const tagList = Array.isArray(tags) ? tags : [tags];

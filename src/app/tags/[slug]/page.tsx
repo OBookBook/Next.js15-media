@@ -4,10 +4,24 @@ import Hero from "@/components/layout/Hero";
 import LoadMoreButton from "@/components/LoadMoreButton";
 import React from "react";
 
-const DetailTag = async ({ params }: { params: { slug: string } }) => {
-  const tagName = (await params).slug;
-  const { allTags: allTags } = await getAllTags();
-  const currentTag = allTags.find((tag: any) => tag.name === tagName);
+interface Params {
+  params: Promise<{
+    slug: string;
+  }>;
+}
+
+const DetailTag = async ({ params }: Params) => {
+  const { slug: tagName } = await params; // params を await で解決
+  const { allTags } = await getAllTags();
+
+  const currentTag = allTags.find(
+    (tag: { id: string; name: string }) => tag.name === tagName
+  );
+
+  if (!currentTag) {
+    return <div>タグが見つかりませんでした。</div>;
+  }
+
   const { articles, totalCount } = await getArticlesByTagId(currentTag.id);
 
   return (
