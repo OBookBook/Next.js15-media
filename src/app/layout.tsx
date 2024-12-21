@@ -23,7 +23,13 @@ export const metadata: Metadata = {
     description: siteData.siteDescription,
     url: siteData.siteUrl,
     siteName: siteData.siteName,
-    images: [{ url: `${siteData.siteUrl}/og.png`, width: 1200, height: 630 }],
+    images: [
+      {
+        url: `${siteData.siteUrl}/opengraph-image.png`,
+        width: 1200,
+        height: 630,
+      },
+    ],
     locale: "ja_JP",
     type: "website",
   },
