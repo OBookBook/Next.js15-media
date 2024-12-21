@@ -9,7 +9,10 @@ export const getAllArticles = async (offset: number = 0, limit: number = 6) => {
     queries: { offset, limit },
   });
 
-  return { data };
+  return {
+    contents: data.contents,
+    totalCount: data.totalCount,
+  };
 };
 
 /**
@@ -21,7 +24,11 @@ export const getDetailArticle = async (contentId: string) => {
     contentId: contentId,
   });
 
-  return { data };
+  return {
+    articles: data,
+    contents: data.contents,
+    totalCount: data.totalCount,
+  };
 };
 
 /**
@@ -29,11 +36,15 @@ export const getDetailArticle = async (contentId: string) => {
  */
 
 export const getArticlesByTagId = async (tagId: string) => {
-  const data = await client.getList({
+  const data = await client.get({
     endpoint: "articles",
     queries: { filters: `tags[equals]${tagId}` },
   });
-  return { data };
+
+  return {
+    articles: data.contents,
+    totalCount: data.totalCount,
+  };
 };
 
 /**
@@ -45,5 +56,7 @@ export const getAllTags = async () => {
     endpoint: "tags",
   });
 
-  return { data };
+  return {
+    allTags: data.contents,
+  };
 };

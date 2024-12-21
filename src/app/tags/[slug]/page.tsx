@@ -6,11 +6,9 @@ import React from "react";
 
 const DetailTag = async ({ params }: { params: { slug: string } }) => {
   const tagName = (await params).slug;
-  const { data: allTags } = await getAllTags();
-  const currentTag = allTags.contents.find((tag: any) => tag.name === tagName);
-  const { data } = await getArticlesByTagId(currentTag.id);
-  const articles = data.contents;
-  const totalCount = data.totalCount;
+  const { allTags: allTags } = await getAllTags();
+  const currentTag = allTags.find((tag: any) => tag.name === tagName);
+  const { articles, totalCount } = await getArticlesByTagId(currentTag.id);
 
   return (
     <div className="px-2 py-12">

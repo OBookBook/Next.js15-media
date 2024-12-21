@@ -4,7 +4,7 @@ import { getDetailArticle } from "@/app/libs/api";
 import { COMMERCIAL_ARTICLE_ID } from "@/app/utils/constants";
 
 const ArticleCommercial = async () => {
-  const { data: article } = await getDetailArticle(COMMERCIAL_ARTICLE_ID);
+  const { articles } = await getDetailArticle(COMMERCIAL_ARTICLE_ID);
 
   return (
     <div>
@@ -13,7 +13,7 @@ const ArticleCommercial = async () => {
       </div>
 
       <div>
-        <ArticleCard article={article} />
+        <ArticleCard article={articles} />
       </div>
     </div>
   );

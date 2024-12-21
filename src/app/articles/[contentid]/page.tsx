@@ -6,11 +6,30 @@ import { XShareButton } from "@/components/common/XShareButton";
 import ArticleCommercial from "@/components/common/ArticleCommercial";
 import BackToTopPageButton from "@/components/common/BackToTopPageButton";
 import Link from "next/link";
+import { promises } from "dns";
+import { Metadata } from "next";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { contentId: string };
+}): Promise<Metadata> {
+  const contentId = params.contentId;
+  const { articles } = await getDetailArticle(contentId);
+  const { title, thumbnails } = articles;
+
+  return {
+    title: title,
+    openGraph: {
+      images: thumbnails,
+    },
+  };
+}
 
 const DetailArticle = async ({ params }: { params: { contentId: string } }) => {
   const contentId = params.contentId;
-  const { data } = await getDetailArticle(contentId);
-  const { title, thumbnails, createdAt, content, author, tags } = data;
+  const { articles } = await getDetailArticle(contentId);
+  const { title, thumbnails, createdAt, content, author, tags } = articles;
   const tagList = Array.isArray(tags) ? tags : [tags];
 
   const shareUrl = `${process.env.NEXT_PUBLIC_SITE_URL}/articles/${contentId}`;

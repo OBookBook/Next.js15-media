@@ -5,15 +5,14 @@ import Link from "next/link";
 import { Tag } from "../types/types";
 
 const Tags = async () => {
-  const { data } = await getAllTags();
-  const allTag = data.contents;
+  const { allTags } = await getAllTags();
 
   return (
     <div>
       <Hero title="タグ一覧" />
       <div className="mt-24">
-        <div className="flex items-center gap-7">
-          {allTag.map((tag: Tag) => (
+        <div className="flex items-center gap-7 md:max-w-4xl max-auto">
+          {allTags.map((tag: Tag) => (
             <Link
               key={tag.id}
               href={`tags/${tag.name}`}

@@ -6,9 +6,8 @@ import { getAllArticles } from "./libs/api";
 // export const dynamic = "force-dynamic";
 
 export default async function Home() {
-  const { data } = await getAllArticles(0, 3);
-  const articles = data.contents;
-  const totalCount = data.totalCount;
+  const { contents, totalCount } = await getAllArticles(0, 3);
+
   return (
     <>
       <main className="mx-auto px-2 py-12">
@@ -17,9 +16,9 @@ export default async function Home() {
         <div className="mt-24">
           <div className="mx-auto text-center py-4">
             <h2 className="md:text-4xl">記事一覧</h2>
-            <ArticleCardList articles={articles} />
+            <ArticleCardList articles={contents} />
             <LoadMoreButton
-              initialCount={articles.length}
+              initialCount={contents.length}
               totalCount={totalCount}
             />
           </div>
