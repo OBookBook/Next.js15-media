@@ -8,7 +8,6 @@ import BackToTopPageButton from "@/components/common/BackToTopPageButton";
 import Link from "next/link";
 import { Metadata } from "next";
 
-// 型定義を修正
 interface PageProps {
   params: Promise<{ contentId: string }>;
 }
@@ -23,7 +22,13 @@ export async function generateMetadata({
   return {
     title: title,
     openGraph: {
-      images: thumbnails,
+      images: [
+        {
+          url: thumbnails.url,
+          width: 1200,
+          height: 630,
+        },
+      ],
     },
   };
 }

@@ -3,6 +3,11 @@ import React from "react";
 import { getAllTags } from "../libs/api";
 import Link from "next/link";
 import { Tag } from "../types/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "タグ一覧",
+};
 
 const Tags = async () => {
   const { allTags } = await getAllTags();
