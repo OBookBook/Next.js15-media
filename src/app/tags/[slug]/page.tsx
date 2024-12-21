@@ -2,6 +2,7 @@ import { getAllTags, getArticlesByTagId } from "@/app/libs/api";
 import ArticleCardList from "@/components/ArticleList";
 import Hero from "@/components/layout/Hero";
 import LoadMoreButton from "@/components/LoadMoreButton";
+import { Metadata } from "next";
 import React from "react";
 
 interface Params {
@@ -10,8 +11,16 @@ interface Params {
   }>;
 }
 
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const slug = (await params).slug;
+
+  return {
+    title: slug,
+  };
+}
+
 const DetailTag = async ({ params }: Params) => {
-  const { slug: tagName } = await params; // params を await で解決
+  const { slug: tagName } = await params;
   const { allTags } = await getAllTags();
 
   const currentTag = allTags.find(
