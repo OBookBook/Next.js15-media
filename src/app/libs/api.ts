@@ -7,6 +7,7 @@ export const getAllArticles = async (offset: number = 0, limit: number = 6) => {
   const data = await client.get({
     endpoint: "articles",
     queries: { offset, limit },
+    // ISRにしたい場合
     // customRequestInit: {
     //   next: { revalidate: 3600 },
     // },
