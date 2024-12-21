@@ -14,8 +14,8 @@ export default async function Home() {
         <Hero title="メディア" />
 
         <div className="mt-24">
-          <div className="mx-auto text-center py-4">
-            <h2 className="md:text-4xl">記事一覧</h2>
+          <div className="mx-auto py-4">
+            <h2 className="md:text-4xl text-center">記事一覧</h2>
             <ArticleCardList articles={contents} />
             <LoadMoreButton
               initialCount={contents.length}

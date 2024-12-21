@@ -34,7 +34,7 @@ const LoadMoreButton = ({ initialCount, totalCount }: LoadMoreButtonProps) => {
   const hasMore = cureentCount < totalCount;
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 text-center">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-y-10 gap-x-4">
         {articles.map((article) => (
           <ArticleCard key={article.id} article={article} />
